@@ -1,0 +1,101 @@
+.pipelines-board, .pipelines-board * {
+	box-sizing: border-box;
+}
+
+.pipelines-board {
+	display: flex;
+	align-content: space-around;
+	color: #2e2e2e;
+	position: relative;
+}
+
+.pipelines-board__svg-overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.pipelines-board__phase {
+	flex: 1 1;
+	margin: 0 1em;
+}
+
+.pipelines-board__phase__job {
+	border: 1px solid #e5e5e5;
+	padding: 8px 10px 9px;
+	border-radius: 10px;
+	margin-bottom: 1em;
+	background-color: white;
+}
+
+.pipelines-board__phase__job__progress {
+	padding-right: 5px;
+	float: left;
+}
+
+.pipelines-board__phase__job__action {
+	padding-left: 5px;
+	float: right;
+}
+
+.pipelines-board__phase__job__action__button {
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff
+		), color-stop(1, #f6f6f6));
+	background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
+		endColorstr='#f6f6f6', GradientType=0);
+	background-color: #ffffff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #333333;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 6px 12px;
+	text-decoration: none;
+}
+
+.pipelines-board__phase__job__action__button:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6
+		), color-stop(1, #ffffff));
+	background: -moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: -webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6',
+		endColorstr='#ffffff', GradientType=0);
+	background-color: #f6f6f6;
+}
+
+.pipelines-board__phase__job__action__button:active {
+	position: relative;
+	top: 1px;
+}
+
+.wrapword {
+	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	white-space: pre-wrap; /* css-3 */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+	white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+	word-break: break-all;
+	white-space: normal;
+}
