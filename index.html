@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pipelines board example</title>
+<link rel="stylesheet" href="src/css/pipelines-board.min.css" />
+</head>
+<body style="padding: 23px;">
+  <h1>Example of a pipeline</h1>
+  <div id="myBoard"></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="src/js/circle-progress.min.js"></script>
+  <script src="src/js/pipelines-board.min.js"></script>
+
+  <script>
+    let callme = function(button) {
+        alert("Button with text \"" + button.getAttribute("action-text") +
+                "\" on element with id " + button.getAttribute("node-id") +
+                " clicked!");
+    }
+    let arrowLineOptions = {
+        lineColor : '#c2c2c2',
+        tension : 1,
+        startOn : "right middle",
+        endOn : "left middle",
+        markerStart : "circle",
+        markerEnd : "arrowRight"
+    };
+    let elements = [{
+        id : "job1",
+        phase : "phase1",
+        title : "My database",
+        progress: {
+            min: 0,
+            max: 100,
+            current: 20,
+            color: '#ff1e41'
+        },
+        link : "#1",
+        next : ["job2"]
+    }, {
+        id : "job2",
+        phase : "phase2",
+        title : "Pull Data",
+        link : "#2",
+        action: [{
+            text: 'Stop',
+            callback: callme
+        }, {
+            text: 'Resume',
+            callback: callme
+        }],
+        next : ["job3"]
+    }, {
+        id : "job3",
+        phase : "phase3",
+        title : "Data Stream",
+        progress: {
+            max: 50,
+            current: 35,
+            color: { gradient: [["red", .8], ["green", .3], ["blue", .2]] }
+        },
+        next : ["job4"]
+    }, {
+        id : "job4",
+        phase : "phase4",
+        title : "Messages Router",
+        progress: {
+            min: 5,
+            max: 10,
+            current: 9
+        },
+        action: [{
+            text: 'Stop',
+            callback: callme
+        }, {
+            text: 'Resume',
+            callback: callme
+        }],
+        next : ["job5", "job6"]
+    }, {
+        id : "job5",
+        phase : "phase5",
+        title : "Firehose to S3",
+        next : ["job7", "job8"]
+    }, {
+        id : "job6",
+        phase : "phase5",
+        title : "Firehose to Redshift",
+        next : ["job9", "job10"]
+    }, {
+        id : "job7",
+        phase : "phase6",
+        title : "S3 storage"
+    }, {
+        id : "job8",
+        phase : "phase6",
+        title : "S3 errors"
+    }, {
+        id : "job9",
+        phase : "phase6",
+        title : "Redshift"
+    }, {
+        id : "job10",
+        phase : "phase6",
+        title : "Redshift load errors"
+    }]
+    var board = new PipelinesBoard("myBoard", {
+        markersFillColor : '#c2c2c2',
+        arrowLineOptions : arrowLineOptions,
+        data : elements
+    });
+  </script>
+</body>
+</html>
