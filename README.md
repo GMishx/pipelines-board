@@ -1,6 +1,6 @@
 # Pipelines Board
 
-Visualize your pipelines with HTML5 + SVG
+Visualize your pipelines with HTML5 + SVG. https://gmishx.github.io/pipelines-board/
 
 ## Depends
 The code has dependencies on
